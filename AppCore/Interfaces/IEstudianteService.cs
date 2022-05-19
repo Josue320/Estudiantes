@@ -9,5 +9,6 @@ namespace AppCore.Interfaces
 {
     public interface IEstudianteService : IService<Estudiante>
     {
+        Estudiante FindById(int id);
     }
 }

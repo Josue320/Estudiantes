@@ -2,12 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Domain.Entities;
+using Domain.Interfaces;
 
 #nullable disable
 
 namespace Domain.DepreciationDBEntities
 {
-    public partial class PepitoSchoolContext : DbContext
+    public partial class PepitoSchoolContext : DbContext, IPepitoSchoolContext
     {
         public PepitoSchoolContext()
         {

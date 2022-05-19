@@ -19,20 +19,65 @@ namespace Infraestructura.Repository
 
         public void Create(Estudiante t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                context.Estudiantes.Add(t);
+                context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public bool Delete(Estudiante t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (t == null)
+                {
+                    throw new ArgumentNullException("El objeto Asset no puede ser null.");
+                }
+
+                Estudiante estudiante = FindById(t.Id);
+                if (estudiante == null)
+                {
+                    throw new Exception($"El objeto con id {t.Id} no existe.");
+                }
+
+                context.Estudiantes.Remove(estudiante);
+                int result = context.SaveChanges();
+
+                return result > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public Estudiante FindById(int id)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new Exception($"El id {id} no puede ser menor o igual a cero.");
+                }
+
+                return context.Estudiantes.FirstOrDefault(x => x.Id == id);
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         public List<Estudiante> GetAll()
         {
-            throw new NotImplementedException();
+            return context.Estudiantes.ToList();
         }
-
-        public int Update(Estudiante t)
+            public int Update(Estudiante t)
         {
             throw new NotImplementedException();
         }

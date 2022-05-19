@@ -9,5 +9,6 @@ namespace Domain.Interfaces
 {
     public interface IEstudianteRepository : IRepository<Estudiante>
     {
+        Estudiante FindById(int id);
     }
 }

@@ -7,11 +7,11 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Infraestructura.Repository
+namespace Domain.Interfaces
 {
     public interface IPepitoSchoolContext
     {
-        public DbSet<Estudiante> AssetEmployees { get; set; }
+        public DbSet<Estudiante> Estudiantes{ get; set; }
 
         public int SaveChanges();
         public Task<int> SaveChangesAsync(CancellationToken cancellationToken);

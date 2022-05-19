@@ -27,6 +27,11 @@ namespace AppCore.Services
             return estudianteRepository.Delete(t);
         }
 
+        public Estudiante FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Estudiante> GetAll()
         {
             return estudianteRepository.GetAll();
